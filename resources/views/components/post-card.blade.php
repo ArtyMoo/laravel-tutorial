@@ -4,7 +4,7 @@
     {{ $attributes->merge (['class' => 'post-card transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']) }}>
     <div class="py-6 px-5">
         <div>
-            <img src="./images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl">
+            <img src="{{ isset($post->thumbnail) ? asset('storage/' . $post->thumbnail ) : './images/illustration-3.png' }}" alt="Blog Post illustration" class="rounded-xl">
         </div>
 
         <div class="mt-8 flex flex-col justify-between">
@@ -51,7 +51,7 @@
                 </div>
 
                 <div>
-                    <a href="#"
+                    <a href="/{{ $post->slug  }}"
                        class="text-black transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
                     >Read More</a>
                 </div>

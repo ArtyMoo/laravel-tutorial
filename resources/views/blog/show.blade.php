@@ -3,7 +3,7 @@
 @section('content')
     <h1>A pogey post! </h1>
     <div class="emz-pog">
-        <img src="https://testsites.ififagency.com/wp-content/uploads/2023/06/pog-emz.png" alt="" srcset="">
+        <img src="{{ asset('storage/' . $post->thumbnail ) }}" alt="" srcset="">
     </div>
     <div class="blog">
         <h1>{{ $post->title }}</h1>
@@ -17,4 +17,12 @@
         </article>
         <p><a href="/">GO BACK, GO BACK!</a></p>
     </div>
+    <section class="bg-gray-500">
+
+        <x-write-a-comment :post_id="$post->id" :slug="$post->slug"></x-write-a-comment>
+
+        @foreach($post->comments->sortByDesc('created_at') as $comment)
+            <x-post-comment :comment="$comment"></x-post-comment>
+        @endforeach
+    </section>
 @endsection

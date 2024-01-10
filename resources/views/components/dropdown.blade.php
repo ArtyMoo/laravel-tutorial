@@ -1,8 +1,8 @@
 @props(['trigger'])
 
 {{--  Trigger  --}}
-<div x-data="{ show: false }" @click.away="show = false">
-    <div @click="show = !show">
+<div x-data="{ show: false }" @click.away="show = false" class="relative">
+    <div @mouseover="show = !show">
         {{ $trigger }}
     </div>
     {{--  Links  --}}
